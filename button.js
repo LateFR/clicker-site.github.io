@@ -12,3 +12,4 @@ const degradeButton = document.getElementById("degrade-button");
 degradeButton.addEventListener("click", function() {
     button.classList.toggle("degrede-active");
 });
+
