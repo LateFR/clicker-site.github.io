@@ -93,7 +93,6 @@ function addOffer(offer, click) {
     if (offer_suivante === offer) {
         offer_suivante = lockedOffers[0];
         lockedOffers.shift();
-        mot_gentil();
     }
     mettreAJourAffichage();
 }
