@@ -1,28 +1,28 @@
 const offers = {
-    "Maman gentille": [1, 50],
-    "Range ta chambre !!!": [2, 100],
-    "Super Maman": [5, 700],
-    "Vénèrious": [20, 1500],
-    "Les-yeux-qui-tue": [100, 10000],
-    "Gros calin": [300, 40000],
-    "L'amour en boite":[2000,150000],
-    "Medicament universel":[5000,700000],
-    "Happy Birthday !!!": [50000, 10000000]
-
-
+    "Déguisement": [1, 50],
+    "Bonbon maléfique": [2, 100],
+    "Malédiction du sang": [5, 700],
+    "Mutation Génétique": [20, 1500],
+    "Maison hantée": [100, 10000],
+    "Chambre mortuaire": [300, 40000],
+    "Serial killer":[1700,150000],
+    "Tricks or treats":[5000,700000],
+    "La mort en boîte !!!": [50000, 10000000],
+    "Apocalypse": [400000, 300000000]
 };
 
-var offer_suivante = "Maman gentille";
+var offer_suivante = "Déguisement";
 
 var lockedOffers = [
-    "Range ta chambre !!!",
-    "Super Maman",
-    "Vénèrious",
-    "Les-yeux-qui-tue",
-    "Gros calin",
-    "L'amour en boite",
-    "Medicament universel",
-    "Happy Birthday !!!",
+    "Bonbon maléfique",
+    "Malédiction du sang",
+    "Mutation Génétique",
+    "Maison hantée",
+    "Chambre mortuaire",
+    "Serial killer",
+    "Tricks or treats",
+    "La mort en boîte !!!",
+    "Apocalypse",
 ];
 
 function toggleMenu() {
