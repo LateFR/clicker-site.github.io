@@ -5,6 +5,7 @@ const button = document.getElementById("Button");
 button.addEventListener("click", function() {
     coins_du_joueur+=coins_par_clic
     mettreAJourAffichage();
+    clickButton+=1;
 });
 
 const degradeButton = document.getElementById("degrade-button");
