@@ -317,6 +317,7 @@
     <p class="texte"><span id="coins_du_joueur" class="gold">coins</span></p>
     <p class="texte"><span id="coins_par_secondes" class="gold">coins/s</span></p>
     <p class="texte"><span id="coins_par_clic" class="gold">coins/clic</span></p>
+    <p class="texte"><span id="CPS" class="gold">Votre nombre de clic par secondes est (CPS) : </span></p>
 
     <div class="red_button">
     <button id="Button">Button</button>
@@ -336,50 +337,54 @@
         </button>
         <div id="shop-menu" class="hidden">
             <ul>
-                <li id="offer-1" class="unlocked" onclick="addOffer('Maman gentille', false)">
-                    Maman gentille (1coin/s) = 50 coins
+                <li id="offer-1" class="unlocked" onclick="addOffer('Déguisement', false)">
+                    Déguisement (1coin/s) = 50 coins
                     <img src="cadena.jpg" alt="" class="lock-icon">
                     <div class="hidden-raccourcis-mode-dev">(B)</div>
                 </li>
-                <li id="offer-2" class="locked" onclick="addOffer('Range ta chambre !!!', true)">
-                    "Range ta chambre !!!" (2coin/clic) = 100 coins
+                <li id="offer-2" class="locked" onclick="addOffer('Bonbon maléfique', true)">
+                    Bonbon maléfique (2coin/clic) = 100 coins
                     <img src="cadena.jpg" alt="cadenas" class="lock-icon">
                     <div class="hidden-raccourcis-mode-dev">(C)</div>
                 </li>
-                <li id="offer-3" class="locked" onclick="addOffer('Super Maman', false)">
-                    Super Maman (5coins/s) = 700 coins
+                <li id="offer-3" class="locked" onclick="addOffer('Malédiction du sang', false)">
+                    Malédiction du sang (5coins/s) = 700 coins
                     <img src="cadena.jpg" alt="cadenas" class="lock-icon">
                     <div class="hidden-raccourcis-mode-dev">(D)</div>
                 </li>
-                <li id="offer-4" class="locked" onclick="addOffer('Vénèrious', true)">
-                    Vénèrious (20coins/clic) = 1 500 coins
+                <li id="offer-4" class="locked" onclick="addOffer('Mutation Génétique', true)">
+                    Mutation Génétique (20coins/clic) = 1 500 coins
                     <img src="cadena.jpg" alt="cadenas" class="lock-icon">
                     <div class="hidden-raccourcis-mode-dev">(E)</div>
                 </li>
-                <li id="offer-5" class="locked" onclick="addOffer('Les-yeux-qui-tue', true)">
-                    Les-yeux-qui-tue (100coins/click) = 10 000 coins
+                <li id="offer-5" class="locked" onclick="addOffer('Maison hantée', true)">
+                    Maison hantée (100coins/click) = 10 000 coins
                     <img src="cadena.jpg" alt="cadenas" class="lock-icon">
                     <div class="hidden-raccourcis-mode-dev">(F)</div>
                 </li>
-                <li id="offer-6" class="locked" onclick="addOffer('Gros calin', false)">
-                    Gros calin (300coins/s)= 40 000 coins
+                <li id="offer-6" class="locked" onclick="addOffer('Chambre mortuaire', false)">
+                    Chambre mortuaire (300coins/s)= 40 000 coins
                     <img src="cadena.jpg" alt="cadenas" class="lock-icon">
                     <div class="hidden-raccourcis-mode-dev">(G)</div>
                 </li>
-                <li id="offer-7" class="locked" onclick="addOffer('L\'amour en boite', false)">
-                    L'amour en boite (1700coins/s) = 150 000 coins
+                <li id="offer-7" class="locked" onclick="addOffer('Serial killer', false)">
+                    Serial killer (1700coins/s) = 150 000 coins
                     <img src="cadena.jpg" alt="cadenas" class="lock-icon">
                     <div class="hidden-raccourcis-mode-dev">(H)</div>
                 </li>
-                <li id="offer-8" class="locked" onclick="addOffer('Medicament universel', true)">
-                    Medicament universel (5000coins/click) = 700 000 coins
+                <li id="offer-8" class="locked" onclick="addOffer('Tricks or treats', true)">
+                    Tricks or treats (5000coins/click) = 700 000 coins
                     <img src="cadena.jpg" alt="cadenas" class="lock-icon">
                     <div class="hidden-raccourcis-mode-dev">(I)</div>
                 </li>
-                <li id="offer-9" class="locked" onclick="addOffer('Happy Birthday !!!', true)">
-                    Happy Birthday !!! (50000coins/click) = 10 000 000 coins
+                <li id="offer-9" class="locked" onclick="addOffer('La mort en boîte !!!', true)">
+                    La mort en boîte !!! (50 000coins/click) = 10 000 000 coins
                     <img src="cadena.jpg" alt="cadenas" class="lock-icon">
                     <div class="hidden-raccourcis-mode-dev">(J)</div>
+                </li>
+                <li id="offer-10" class="locked" onclick="addOffer('Apocalypse', false)">
+                    Apocalypse (400 000 coins/s) = 300 000 000 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
                 </li>
             </ul>
             
