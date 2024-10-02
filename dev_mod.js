@@ -112,13 +112,15 @@ function devModeActions(event) {
 }
 
 function banAUtoClicker(){
-    if (CPS>11){
-        suspicion_de_triche+=1;
+    if (dev_mode == true){
+        if (CPS>11){
+            suspicion_de_triche+=1;
 
-        if (suspicion_de_triche>2){
-            alert("Vous êtes ban pour Auto clicker, merci de ne pas tricher");
-            Reinitialiser();
-        alert("Supicion d'auto clicker, merci d'arreter de tricher");
+            if (suspicion_de_triche>2){
+                alert("Vous êtes ban pour Auto clicker, merci de ne pas tricher");
+                Reinitialiser();
+            alert("Supicion d'auto clicker, merci d'arreter de tricher");
+            }
         }
     }
 }
