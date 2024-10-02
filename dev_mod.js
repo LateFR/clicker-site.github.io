@@ -75,15 +75,15 @@ function devModeActions(event) {
             mettreAJourAffichage();
             break;
         case "KeyD":
-            addOffer("Malédiction du sang", false);
+            addOffer("Malediction du sang", false);
             mettreAJourAffichage();
             break;
         case "KeyE":
-            addOffer("Mutation Génétique", true);
+            addOffer("Mutation Genetique", true);
             mettreAJourAffichage();
             break;
         case "KeyF":
-            addOffer("Maison hantée", true);
+            addOffer("Maison hantee", true);
             mettreAJourAffichage();
             break;
         case "KeyG":
@@ -129,31 +129,32 @@ function Reinitialiser(){
     coins_par_secondes=0;
     offer_suivante = "Déguisement"
     lockedOffers = [
-        "Bonbon maléfique",
-        "Malédiction du sang",
-        "Mutation Génétique",
-        "Maison hantée",
+        "Bonbon malefique",
+        "Malediction du sang",
+        "Mutation Genetique",
+        "Maison hantee",
         "Chambre mortuaire",
         "Serial killer",
         "Tricks or treats",
         "La mort en boîte !!!",
         "Apocalypse",
     ];
-    document.getElementById("Maman gentille").classList.remove("unlocked");
-    document.getElementById("Maman gentille").classList.add("locked");
-    document.getElementById("Range ta chambre !!!").classList.add("locked");
-    document.getElementById("Super Maman").classList.remove("unlocked");
-    document.getElementById("Super Maman").classList.add("locked");
-    document.getElementById("Vénèrious").classList.remove("unlocked");
-    document.getElementById("Vénèrieus").classList.add("locked");
-    document.getElementById("Les-yeux-qui-tue").classList.remove("unlocked");
-    document.getElementById("Les-yeux-qui-tue").classList.add("locked");
-    document.getElementById("Gros calin").classList.remove("unlocked");
-    document.getElementById("Gros calin").classList.add("locked");
-    document.getElementById("L'amour en boite").classList.remove("unlocked");
-    document.getElementById("L'amour en boite").classList.add("locked");
-    document.getElementById("Medicament universel").classList.remove("unlocked");
-    document.getElementById("Medicament universel").classList.add("locked");
-    document.getElementById("Happy Birthday !!!").classList.remove("unlocked");
-    document.getElementById("Happy Birthday !!!").classList.add("locked");
+    document.getElementById("Bonbon malefique").classList.remove("unlocked");
+    document.getElementById("Bonbon malefique").classList.add("locked");
+    document.getElementById("Malediction du sang").classList.remove("unlocked");
+    document.getElementById("Malediction du sang").classList.add("locked");
+    document.getElementById("Mutation Genetique").classList.remove("unlocked");
+    document.getElementById("Mutation Genetique").classList.add("locked");
+    document.getElementById("Maison hantee").classList.remove("unlocked");    
+    document.getElementById("Maison hantee").classList.add("locked");   
+    document.getElementById("Chambre mortuaire").classList.remove("unlocked");
+    document.getElementById("Chambre mortuaire").classList.add("locked");
+    document.getElementById("Serial killer").classList.remove("unlocked");
+    document.getElementById("Serial killer").classList.add("locked");
+    document.getElementById("Tricks or treats").classList.remove("unlocked");
+    document.getElementById("Tricks or treats").classList.add("locked");
+    document.getElementById("La mort en boîte !!!").classList.remove("unlocked");
+    document.getElementById("La mort en boîte !!!").classList.add("locked");
+    document.getElementById("Apocalypse").classList.remove("unlocked");
+    document.getElementById("Apocalypse").classList.add("locked");
 }
