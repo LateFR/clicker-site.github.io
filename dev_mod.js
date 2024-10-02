@@ -1,107 +1,400 @@
-var dev_mode = false;
-var code_proposee = 0;
-const code_admin = 1478;
-const devModeButton = document.getElementById("dev_mode");
-var element = [];
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker</title>
+    <style>
+        /*fond d'ecran*/
 
-devModeButton.addEventListener("click", function() {
-    if (!dev_mode) {
-        code_proposee = Number(prompt("Entrer le code admin pour entrer en mode développeur"));
-        if (code_proposee === code_admin) {
-            alert("dev mode activé, droit admin accordé");
-            devModeButton.innerText = "//dev Mode actif";
-            dev_mode = true;
-            alert("Racourcis claviers:"+
-                    "B= Achete maman gentille"+
-                    "C= Achete range ta chambre !!!"+
-                    "D= Achete super maman"+
-                    "E= Achete vénèrieux"+
-                    "F= Achete les-yeux-qui-tue"+
-                    "G= Achete gros calin"+
-                    "H= Achete l'amour en boite"+
-                    "I= Achete medicament universel"+
-                    "J= Achete happy birthday !!!"
-                    );
-            
-            // Ajoute les fonctionnalités du mode développeur
-            document.addEventListener("keydown", devModeActions);
-        } else {
-            alert("code admin incorrect");
+        body {
+            background: linear-gradient(to right, #185cda, #cf9413); /* Bleu clair à gris-bleuté */
+            height: 100vh; /* S'assure que le dégradé couvre toute la hauteur de la page */
+            margin: 0; /* Supprime les marges */
         }
-    } else {
-        // Désactive le mode développeur
-        alert("dev mode désactivé");
-        devModeButton.innerText = "//dev Mode";
-        dev_mode = false;
-        document.removeEventListener("keydown", devModeActions); // Retire les fonctionnalités du mode développeur
 
-        element = document.getElementsByClassName("raccourcis-mode-dev");
-
-            for (var i = 0; i < element.length; i++) {
-                element[i].classList.remove("raccourcis-mode-dev"); // Retire la classe "raccourcis-mode-dev"
-                element[i].classList.add("hidden-raccourcis-mode-dev"); // Ajoute la classe "hidden-raccourcis-mode-dev"
+        
+        /* Style spécifique pour le bouton principal (bouton rouge) */
+        .red_button button {
+            position: absolute;
+            top: 45%;
+            right: 50%;
+            translate: 50% 50%;
+            padding: 50px 50px;
+            background-color: red;
+            color: white;
+            font-size: 50px;
+            border-radius: 20px;
+            border: none;
             }
-    }
-});
+        .degrede-active {
+            animation: red_button 2s infinite;
+        }
+        /* Hover pour le bouton principal */
+        .red_button button:hover {
+            background-color: rgb(167, 79, 44);
+            color: black;
+        }
 
-// Fonction pour gérer les actions en mode développeur
-function devModeActions(event) {
+        .degrade-button {
+            position:absolute;
+            bottom : 0%;
+            right : 0%;
+            padding : 5px 20px;
+            color : black;
+            cursor : pointer;
+        }
 
-    switch (event.code) {
-        case "KeyS":
-            event.preventDefault();
-            coins_du_joueur = 0;
-            coins_par_secondes = 0;
-            coins_par_clic = 1;
-            mettreAJourAffichage();
-            break;
-        case "KeyX":
-            coins_du_joueur += 10000000;
-            mettreAJourAffichage();
-            break;
-        case "ControlLeft":
-            coins_du_joueur = Number(prompt("/DevMode/ Combien de coins te give tu ?"));
-            coins_par_secondes = Number(prompt("/DevMode/ Combien te give tu de coins/s ?"));
-            coins_par_clic = Number(prompt("/DevMode/ Combien te give tu de coins/clic ?"));
-            mettreAJourAffichage();
-            break;
-        case "KeyB":
-            addOffer("Maman gentille", false);
-            mettreAJourAffichage();
-            break;
-        case "KeyC":
-            addOffer("Range ta chambre !!!", true);
-            mettreAJourAffichage();
-            break;
-        case "KeyD":
-            addOffer("Super Maman", false);
-            mettreAJourAffichage();
-            break;
-        case "KeyE":
-            addOffer("Vénèrious", true);
-            mettreAJourAffichage();
-            break;
-        case "KeyF":
-            addOffer("Les-yeux-qui-tue", true);
-            mettreAJourAffichage();
-            break;
-        case "KeyG":
-            addOffer("Gros calin", false);
-            mettreAJourAffichage();
-            break;
-        case "KeyH":
-            addOffer("L'amour en boite", false);
-            mettreAJourAffichage();
-            break;
-        case "KeyI":
-            addOffer("Medicament universel", true);
-            mettreAJourAffichage();
-            break;
-        case "KeyJ":
-            addOffer("Happy Birthday !!!", true);
-            mettreAJourAffichage();
-            break;
-        default:
-            break; // Ignore d'autres touches
-    }
-}
+        .mode-anniv {
+            position:absolute;
+            bottom : 0%;
+            right : 13%;
+            padding : 5px 20px;
+            color : black;
+            cursor : pointer;
+        }
+
+        @keyframes red_button {
+            0% {
+                background: linear-gradient(to right, red, rgb(219, 95, 38));
+            }
+            5% {
+                background: linear-gradient(to right, rgb(219, 95, 38), rgb(216, 114, 114));
+            }
+            10% {
+                background: linear-gradient(to right, rgb(216, 114, 114), rgb(236, 103, 80));
+            }
+            15% {
+                background: linear-gradient(to right, rgb(236, 103, 80), red);
+            }
+            20% {
+                background: linear-gradient(to right, red, rgb(219, 95, 38));
+            }
+            25% {
+                background: linear-gradient(to right, rgb(219, 95, 38), rgb(216, 114, 114));
+            }
+            30% {
+                background: linear-gradient(to right, rgb(216, 114, 114), rgb(236, 103, 80));
+            }
+            35% {
+                background: linear-gradient(to right, rgb(236, 103, 80), red);
+            }
+            40% {
+                background: linear-gradient(to right, red, rgb(219, 95, 38));
+            }
+            45% {
+                background: linear-gradient(to right, rgb(219, 95, 38), rgb(216, 114, 114));
+            }
+            50% {
+                background: linear-gradient(to right, rgb(216, 114, 114), rgb(236, 103, 80));
+            }
+            55% {
+                background: linear-gradient(to right, rgb(236, 103, 80), red);
+            }
+            60% {
+                background: linear-gradient(to right, red, rgb(219, 95, 38));
+            }
+            65% {
+                background: linear-gradient(to right, rgb(219, 95, 38), rgb(216, 114, 114));
+            }
+            70% {
+                background: linear-gradient(to right, rgb(216, 114, 114), rgb(236, 103, 80));
+            }
+            75% {
+                background: linear-gradient(to right, rgb(236, 103, 80), red);
+            }
+            80% {
+                background: linear-gradient(to right, red, rgb(219, 95, 38));
+            }
+            85% {
+                background: linear-gradient(to right, rgb(219, 95, 38), rgb(216, 114, 114));
+            }
+            90% {
+                background: linear-gradient(to right, rgb(216, 114, 114), rgb(236, 103, 80));
+            }
+            95% {
+                background: linear-gradient(to right, rgb(236, 103, 80), red);
+            }
+            100% {
+                background: linear-gradient(to right, red, rgb(219, 95, 38));
+            }
+        }
+
+        /* Style spécifique pour le bouton du shop */
+        #shop-button {
+            position: fixed;
+            top: 100px;
+            right: 100px;
+            padding: 10px 10px;
+            font-size: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Hover spécifique pour le bouton du shop */
+        #shop-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Menu du shop avec scroll */
+        #shop-menu {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+            background-color: rgb(208, 208, 238);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            max-height: 300px;  /* Limite la hauteur du menu */
+            overflow-y: auto;   /* Active le scroll vertical */
+            width: 400px;       /* Largeur fixe */
+        }
+
+        #shop-menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #shop-menu li {
+            padding: 20px 70px;
+            cursor: pointer;
+        }
+
+        #shop-menu li:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Classe pour cacher le menu */
+        .hidden {
+            display: none;
+        }
+
+        .texte {
+            font-size: 30px;
+        }
+
+        .gold{
+            color: gold;
+            font-weight: bold; /* Rendre le texte un peu plus visible */
+        }
+
+        /* Style pour les offres verrouillées */
+        .locked {
+            color: grey;  /* Change la couleur pour les offres verrouillées */
+            cursor: not-allowed;
+            position: relative;
+        }
+
+        /* Style pour l'image de cadenas */
+        .lock-icon {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 340px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hidden-icon {
+            display: none;
+        }
+
+
+        /* Quand l'offre est débloquée, retire le style "locked" */
+        .unlocked {
+            color: black;
+            cursor: pointer;
+        }
+
+        .unlocked .lock-icon {
+            display: none;
+        }
+
+        .annimation {
+            top: -2000px;
+            left: -2000px;
+            position: relative;
+            background-color: white;
+            /* Applique l'animation définie */
+            animation: mouvement_perpetuel 4s infinite alternate;
+        }
+
+         @keyframes mouvement_perpetuel {
+            0% {
+                top: -150px;
+                left: 150px;
+                scale : 1
+            }
+            10% {
+                top : -145px; /* Déplacement léger */
+                left : 145px; /* Déplacement léger */
+                scale : (1,3)
+            }
+            20% {
+                top: -140px; /* Déplacement modéré */
+                left: 140px; /* Déplacement modéré */
+                scale : (1,5)
+            }
+            30% {
+                top: -135px; /* Légère montée */
+                left: 158px; /* Légère gauche */
+                scale : 1,4
+            }
+            40% {
+                top: -130px; /* Montée modérée */
+                left: 135px; /* Gauche modérée */
+                scale : (1,3)
+            }
+            50% {
+                top: -140px; /* Légère descente */
+                left: 155px; /* Légère droite */
+                scale : (1,1)
+            }
+            60% {
+                top: -145px; /* Descente légère */
+                left: 155px; /* Droite légère */
+                scale : (1,4)
+            }
+            70% {
+                top: -140px; /* Montée légère */
+                left: 155px; /* Gauche légère */
+                scale : (1,6)
+            }
+            80% {
+                top: -135px; /* Montée modérée */
+                left: 145px; /* Droite modérée */
+                scale : (1,45)
+            }
+            90% {
+                top: -145px; /* Retour vers le bas */
+                left: 150px; /* Retour à la droite */
+                scale : (1,2)
+            }
+            100% {
+                top: -150px; /* Retour à la position initiale */
+                left: 150px; /* Retour à la position initiale */
+                scale : 1
+            }
+        }
+
+        #joyeux-anniversaire {
+            background-color: transparent; /* Pas de couleur de fond */
+            border: none; /* Pas de bordure */
+            padding: 0; /* Aucune marge interne */
+        
+        }
+
+        .dev-mode{
+            position : absolute;
+            bottom : 0%;
+            right : 5%;
+            padding : 5px 20px;
+            color : black;
+            cursor : pointer;
+        }
+
+        .raccourcis-mode-dev{
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: 340px;
+            top: 10px;
+            translate: 50% 50%;
+        }
+        .hidden-raccourcis-mode-dev{
+            display : none;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Clicker</h1>
+    
+    <p class="texte"><span id="coins_du_joueur" class="gold">coins</span></p>
+    <p class="texte"><span id="coins_par_secondes" class="gold">coins/s</span></p>
+    <p class="texte"><span id="coins_par_clic" class="gold">coins/clic</span></p>
+    <p class="texte"><span id="CPS" class="gold">Votre nombre de clic par secondes est (CPS) : </span></p>
+
+    <div class="red_button">
+    <button id="Button">Button</button>
+    </div>
+
+    <div class = "dev-mode">
+        <button id="dev_mode">//dev Mode</button>
+    </div>
+
+    <div class="degrade-button">
+        <button id="degrade-button">Dégradé</button>
+    </div>
+    
+    <div>
+        <button id="shop-button">
+            <img src="icon_shop.jpg" alt="shop" width="40" height="40">
+        </button>
+        <div id="shop-menu" class="hidden">
+            <ul>
+                <li id="offer-1" class="unlocked" onclick="addOffer('Déguisement', false)">
+                    Déguisement (1coin/s) = 50 coins
+                    <img src="cadena.jpg" alt="" class="lock-icon">
+                    <div class="hidden-raccourcis-mode-dev">(B)</div>
+                </li>
+                <li id="offer-2" class="locked" onclick="addOffer('Bonbon maléfique', true)">
+                    Bonbon maléfique (2coin/clic) = 100 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
+                    <div class="hidden-raccourcis-mode-dev">(C)</div>
+                </li>
+                <li id="offer-3" class="locked" onclick="addOffer('Malédiction du sang', false)">
+                    Malédiction du sang (5coins/s) = 700 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
+                    <div class="hidden-raccourcis-mode-dev">(D)</div>
+                </li>
+                <li id="offer-4" class="locked" onclick="addOffer('Mutation Génétique', true)">
+                    Mutation Génétique (20coins/clic) = 1 500 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
+                    <div class="hidden-raccourcis-mode-dev">(E)</div>
+                </li>
+                <li id="offer-5" class="locked" onclick="addOffer('Maison hantée', true)">
+                    Maison hantée (100coins/click) = 10 000 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
+                    <div class="hidden-raccourcis-mode-dev">(F)</div>
+                </li>
+                <li id="offer-6" class="locked" onclick="addOffer('Chambre mortuaire', false)">
+                    Chambre mortuaire (300coins/s)= 40 000 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
+                    <div class="hidden-raccourcis-mode-dev">(G)</div>
+                </li>
+                <li id="offer-7" class="locked" onclick="addOffer('Serial killer', false)">
+                    Serial killer (1700coins/s) = 150 000 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
+                    <div class="hidden-raccourcis-mode-dev">(H)</div>
+                </li>
+                <li id="offer-8" class="locked" onclick="addOffer('Tricks or treats', true)">
+                    Tricks or treats (5000coins/click) = 700 000 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
+                    <div class="hidden-raccourcis-mode-dev">(I)</div>
+                </li>
+                <li id="offer-9" class="locked" onclick="addOffer('La mort en boîte !!!', true)">
+                    La mort en boîte !!! (50 000coins/click) = 10 000 000 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
+                    <div class="hidden-raccourcis-mode-dev">(J)</div>
+                </li>
+                <li id="offer-10" class="locked" onclick="addOffer('Apocalypse', false)">
+                    Apocalypse (400 000 coins/s) = 300 000 000 coins
+                    <img src="cadena.jpg" alt="cadenas" class="lock-icon">
+                </li>
+            </ul>
+            
+    </div>
+
+    <script src="clickcoin.js"></script>
+    <script src="button.js"></script>
+    <script src="shop.js"></script>
+    <script src="dev_mod.js"></script>
+</body>
+
+</body>
+</html>
