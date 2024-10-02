@@ -1,9 +1,9 @@
 const offers = {
-    "Déguisement": [1, 50],
-    "Bonbon maléfique": [2, 100],
-    "Malédiction du sang": [5, 700],
-    "Mutation Génétique": [20, 1500],
-    "Maison hantée": [100, 10000],
+    "Deguisement": [1, 50],
+    "Bonbon malefique": [2, 100],
+    "Malediction du sang": [5, 700],
+    "Mutation Genetique": [20, 1500],
+    "Maison hantee": [100, 10000],
     "Chambre mortuaire": [300, 40000],
     "Serial killer":[1700,150000],
     "Tricks or treats":[5000,700000],
@@ -11,13 +11,13 @@ const offers = {
     "Apocalypse": [400000, 300000000]
 };
 
-var offer_suivante = "Déguisement";
+var offer_suivante = "Deguisement";
 
 var lockedOffers = [
-    "Bonbon maléfique",
-    "Malédiction du sang",
-    "Mutation Génétique",
-    "Maison hantée",
+    "Bonbon malefique",
+    "Malediction du sang",
+    "Mutation Genetique",
+    "Maison hantee",
     "Chambre mortuaire",
     "Serial killer",
     "Tricks or treats",
