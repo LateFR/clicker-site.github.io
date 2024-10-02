@@ -14,7 +14,8 @@ var clickCPS = {sec1:0,
                 sec10:0,
 }
 var CPS=0;
-
+var timer_s = 0;
+var timer_m = 0;
 function formatNumber(num) {
     return num.toLocaleString('fr-FR'); // Formatage pour le français
 }
@@ -24,7 +25,8 @@ function mettreAJourAffichage() {
     document.getElementById("coins_du_joueur").innerText = "coins : "+formatNumber(coins_du_joueur);
     document.getElementById("coins_par_secondes").innerText = "coins/s : "+formatNumber(coins_par_secondes) ;
     document.getElementById("coins_par_clic").innerText = "coins/clic : "+formatNumber(coins_par_clic) ;
-    document.getElementById("CPS").innerText = "Votre click par seconde est (CPS) : "+formatNumber(CPS);
+    document.getElementById("CPS").innerText = "Votre clic par seconde est (CPS) : "+formatNumber(CPS);
+    document.getElementById("timer").innerText = "Temps : "+formatNumber(timer_m)+"'"+formatNumber(timer_s)+"'' min";
 
 }
 
@@ -39,6 +41,7 @@ setInterval(() => {
     mettreAJourAffichage()
     clickCPS.sec1 = 0;
     banAUtoClicker();
+    timer();
 }, 1000);
 
 setInterval(() => {;
@@ -55,3 +58,12 @@ function updateCPS(clickButton) {
     ;
     return Object.values(clickCPS).reduce((a, b) => a + b, 0) /10;
 }
+
+function timer() {
+    timer_s += 1;
+    if (timer_s > 59) {
+        timer_s = 0;
+        timer_m += 1;
+    }
+}
+    
