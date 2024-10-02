@@ -94,7 +94,12 @@ function addOffer(offer, click) {
         offer_suivante = lockedOffers[0];
         lockedOffers.shift();
     }
+
+    if (offer === "Apocalypse") {
+        alert('Félicitations, tu as acheté la dérnière offre !!! Tu as mis '+timer_m+'.'+timer_s+' minutes pour "finir" le jeu !!! ');
+    }
     mettreAJourAffichage();
+
 }
 
 setInterval(() => {
