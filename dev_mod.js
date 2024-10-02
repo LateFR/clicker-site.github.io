@@ -112,7 +112,7 @@ function devModeActions(event) {
 }
 
 function banAUtoClicker(){
-    if (dev_mode == true){
+    if (dev_mode == false){
         if (CPS>11){
             suspicion_de_triche+=1;
 
