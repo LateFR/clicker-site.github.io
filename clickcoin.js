@@ -23,6 +23,7 @@ function formatNumber(num) {
 // Fonction pour mettre à jour l'affichage avec un texte personnalisé
 function mettreAJourAffichage() {
     document.getElementById("coins_du_joueur").innerText = "coins : "+formatNumber(coins_du_joueur);
+    document.getElementById('coins-du-joueur')=formatNumber(coins_du_joueur);
     document.getElementById("coins_par_secondes").innerText = "coins/s : "+formatNumber(coins_par_secondes) ;
     document.getElementById("coins_par_clic").innerText = "coins/clic : "+formatNumber(coins_par_clic) ;
     document.getElementById("CPS").innerText = "Votre clic par seconde est (CPS) : "+formatNumber(CPS);
